@@ -140,6 +140,9 @@ public class LambdaExpressionExamples {
     /**
      * What these lambda expressions end up being? Lambda expressions can be passed whenever a "functional interface" is
      * wanted. Some examples follow.
+     * 
+     * Some info at https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html &
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
      */
     @Test
     public void functionalInterfaces() {

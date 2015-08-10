@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,6 +53,24 @@ public class StreamExamples {
                 .findFirst();
         assertTrue(gangOfFour.isPresent());
         assertEquals(4, gangOfFour.get().authors.size());
+    }
+
+    /**
+     * After terminal operation, stream can't be used any more.
+     *
+     * Some notes on this at http://stackoverflow.com/a/28513908/28482
+     */
+    @Test
+    public void terminalOperationsIndeed() {
+        Stream<Book> bookStream = TestData.getBooks().stream();
+        assertEquals(4, bookStream.count());
+
+        try {
+             bookStream.count();
+             fail("No expection got?");
+        } catch(IllegalStateException e) {
+            // We got exception as expected
+        }
     }
 
     @Test
