@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>FP with Java 8 - 101</title>
+
+		<meta name="description" content="Brief introduction to FP with Java 8">
+		<meta name="author" content="Touko Vainio-Kaila">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+<section data-markdown>
+  # FP with Java 8 - 101
+</section>
+<section data-markdown>
+  ## Why should I care? Java for FP?
+  * Java (even 8) is not Scala, Clojure, Haskell or [your-favourite].
+  * Every now and then Java might still be required, e.g. legacy codebase, customer requirement, ...
+  * If so, Java 8's FP support is actually pretty nice -> if using Java, Java 8 is a big improvement.
+</section>
+<section data-markdown>
+  ## What to expect (from this intro)?
+  * A couple of examples to present Java 8's new FP-enabling features.
+  * (Basic Java & FP knowledge is assumed)
+</section>
+<section>
+  <section>
+  <h2>Short precap</h2>
+  <p>See <a href="https://github.com/toukovk/java-8-fp-examples/blob/master/src/test/java/JavaPreJava8Comparison.java">JavaPreJava8Comparison.java</a></p>
+  </section>
+  <section>
+  <h2>The main things</h2>
+  <ul>
+  <li class="fragment">Lambda expressions - functions closer to being first class sitizens</li>
+  <li class="fragment">Stream API etc. - uniform way to work in a FPish way with collections etc.</li>
+  <li class="fragment">Misc other smaller imprevements (Optional, default methods in interfaces, ...)</li>
+  </ul>
+  </section>
+</section>
+<section>
+  <section data-markdown>
+  ## Lambda expressions
+  * See [LambdaExpressionExamples.java](https://github.com/toukovk/java-8-fp-examples/blob/master/src/test/java/LambdaExpressionExamples.java)
+  </section>
+</section>
+<section>
+  <section data-markdown>
+  ## Streams
+  * See [StreamExamples.java](https://github.com/toukovk/java-8-fp-examples/blob/master/src/test/java/StreamExamples.java)
+  </section>
+</section>
+<section data-markdown>
+## Misc things
+* See [MiscExamples.java](https://github.com/toukovk/java-8-fp-examples/blob/master/src/test/java/MiscExamples.java)
+</section>
+<section>
+  <section data-markdown>
+  ## Do you want more?
+  * Try it - for example clone the [Example repo](https://github.com/toukovk/java-8-fp-examples).
+  * [Venkat S: Functional Programming in Java](https://pragprog.com/book/vsjava8/functional-programming-in-java)
+  * [Retrolambda](https://github.com/orfjackal/retrolambda) - use Java 8 lambdas on earlier Java versions (caveat - I haven't tried myself)
+  </section>
+</section>
+<section>
+  <section data-markdown>
+  ## Thanks - questions/feedback?
+  ### [@toukovk](https://twitter.com/toukovk)
+  </section>
+</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

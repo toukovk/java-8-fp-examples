@@ -1,0 +1,1 @@
+Slides for https://github.com/toukovk/java-8-fp-examples
