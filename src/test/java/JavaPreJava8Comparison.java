@@ -74,8 +74,8 @@ public class JavaPreJava8Comparison {
     @Test
     public void processListWithJava8() {
         Set<String> names = TestData.getBooks().stream()
-            .filter(book -> book.hasMultipleAuthors())
-            .map(book -> book.getName())
+            .filter(Book::hasMultipleAuthors)
+            .map(Book::getName)
             .collect(Collectors.toSet());
         
         Set<String> expected = Sets.newHashSet("Design Patterns: Elements of Reusable Object-Oriented Software",

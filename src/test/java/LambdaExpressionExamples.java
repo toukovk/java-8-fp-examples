@@ -138,10 +138,11 @@ public class LambdaExpressionExamples {
     }
     
     /**
-     * What these lambda expressions end up being? Lambda expressions can be passed whenever a "functional interface" is
-     * wanted. Some examples follow.
-     * 
-     * Some info at https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html &
+     * What these lambda expressions end up being? Lambda expressions can be passed whenever
+     * a "functional interface" is wanted.
+     *
+     * Roughly, a functional interface has exactly one abstract method.
+     * More info at https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html &
      * https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
      */
     @Test
@@ -154,8 +155,8 @@ public class LambdaExpressionExamples {
         names.forEach(consumer);
 
         // Function<T, R>
-        Function<String, Integer> function = String::length;
-        List<Integer> lengths = names.stream().map(function).collect(Collectors.toList());
+        Function<String, Integer> lengthFunction = String::length;
+        List<Integer> lengths = names.stream().map(lengthFunction).collect(Collectors.toList());
         assertEquals(Lists.newArrayList(5, 3, 9), lengths);
 
         // Comparator<T>

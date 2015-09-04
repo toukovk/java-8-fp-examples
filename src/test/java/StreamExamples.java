@@ -32,7 +32,8 @@ public class StreamExamples {
         // map
         Stream<String> namesStream = booksWithMultipleAuthors.map(book -> book.getName());
         
-        Set<String> expected = Sets.newHashSet("Design Patterns: Elements of Reusable Object-Oriented Software",
+        Set<String> expected = 
+            Sets.newHashSet("Design Patterns: Elements of Reusable Object-Oriented Software",
                 "Structure and Interpretation of Computer Programs");
         assertEquals(expected, namesStream.collect(Collectors.toSet()));
     }
@@ -79,8 +80,8 @@ public class StreamExamples {
 
         // T reduce(T identity, BinaryOperator<T> accumulator)
         assertEquals(15, ints.stream().reduce(0, (Integer a, Integer b) -> a+b).intValue());
-        // Note that there are separate Stream interfaces for primitive data types (because of how Java generics work)
-        // (thus mapToInt)
+        // Note that there are separate Stream interfaces for primitive data types
+        // because of how Java generics work (thus mapToInt)
         assertEquals(15, ints.stream().mapToInt(i -> i).reduce(0, (a, b) -> a+b));
         // For streams for primitive number types there's also sum
         assertEquals(15, ints.stream().mapToInt(i -> i).sum());
@@ -89,10 +90,12 @@ public class StreamExamples {
     @Test
     public void collectAndReduce() {
         // Collecting stream elements to can be done manually with general reduce 
-        // <U> U reduce(U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner);
-        List<Book> collectedWithReduce = TestData.getBooks().stream().reduce(new ArrayList<Book>(),
+        // <U> U reduce(U identity, BiFunction<U, ? super T, U> accumulator,
+        //     BinaryOperator<U> combiner);
+        List<Book> collectedWithReduce = TestData.getBooks().stream()
+            .reduce(new ArrayList<Book>(),
                 (list, book) -> {
-                    // SEparate list created to avoid mutating elements in the list
+                    // Separate list created to avoid mutating elements in the list
                     // -> works also with parallel streams
                     ArrayList<Book> result = new ArrayList<Book>(list);
                     result.add(book);
@@ -105,11 +108,14 @@ public class StreamExamples {
         assertEquals(4, collectedWithReduce.size());
 
         // Collect to list "manually" with collect
-        // R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)
-        List<Book> books = TestData.getBooks().stream().collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+        // R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator,
+        //     BiConsumer<R, R> combiner)
+        List<Book> books = TestData.getBooks().stream()
+            .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
         assertEquals(4, books.size());
 
         // And the typical way using utilities from java.util.stream.Collectors
-        assertEquals(4, TestData.getBooks().stream().collect(Collectors.toList()).size());
+        assertEquals(4,
+            TestData.getBooks().stream().collect(Collectors.toList()).size());
     }
 }
